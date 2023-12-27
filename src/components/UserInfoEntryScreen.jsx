@@ -21,7 +21,7 @@ function UserInfoEntryScreen({ setUserInfo }) {
       <FormGroup column="true">
         <TextField
           autoFocus
-          id="standard-basic"
+          id="name-input"
           label="Name"
           required
           value={name}
@@ -31,6 +31,7 @@ function UserInfoEntryScreen({ setUserInfo }) {
           control={
             <Checkbox
               name="isScrumMaster"
+              id="is-scrum-master-checkbox"
               color="primary"
               value={isScrumMaster}
               onChange={(e) => setIsScrumMaster(e.target.checked)}
@@ -40,6 +41,7 @@ function UserInfoEntryScreen({ setUserInfo }) {
         />
         <Button
           disabled={!name}
+          id="join-planning-poker-button"
           variant="contained"
           color="primary"
           onClick={() => setUserInfo({ name, isScrumMaster, teamId: teamId })}
