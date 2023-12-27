@@ -14,6 +14,22 @@ This app can support potentially infinite simultaneous Planning Poker sessions, 
 
 A websocket connection is used on each client to connect to the API. This allows the backend to update users of one another's actions in real time. A service at `services/WebSocketService.js` has been implemented which wraps the client's socket in a Singleton pattern in order to avoid duplicate connections among the app's components, as would happen with a `useWebSocket` hook. This service is used directly by the components in several places, as well as by `hooks/useVotes.js` which listens to vote updates and recalculates voting data when it changes. The `useVotes` hook is used in turn by various components which display this data.
 
+## Running the app locally
+
+1. `npm i` (if you haven't already)
+2. `npm start`
+
+## Tests
+
+e2e Playwright tests are found in the `tests` folder.
+
+Some tests expect the app to be running locally.
+
+To run tests:
+
+1. Run the app locally
+2. `npx playwright test`
+
 ## Todo
 * Refactor to wrap User Info Entry in a real HTML form so that the user can hit Enter rather than having to click the "Join Planning" button.
 * Add a SFXService so that the app can play the Jeopardy theme during voting.
