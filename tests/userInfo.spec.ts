@@ -50,16 +50,16 @@ test.describe("User Info Form Tests", () => {
   })
 
   test("Join button is disabled when name input is empty", async () => {
-    const isButtonChecked = await wsPlanningPokerPage.joinButton.isDisabled();
+    const isJoinButtonDisabled = await wsPlanningPokerPage.joinButton.isDisabled();
 
-    expect(isButtonChecked).toBe(true);
+    expect(isJoinButtonDisabled).toBe(true);
   })
 
   test("Join button is disabled when name input is filled", async () => {
     await wsPlanningPokerPage.nameInput.fill('Test User');
 
-    const isButtonChecked = await wsPlanningPokerPage.joinButton.isDisabled();
+    const isJoinButtonDisabled = await wsPlanningPokerPage.joinButton.isDisabled();
 
-    expect(isButtonChecked).toBe(false);
+    expect(isJoinButtonDisabled).toBe(false);
   })
 });
