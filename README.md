@@ -1,7 +1,7 @@
 # websockets planning poker
 
 ## About
-This is a React.js app that uses websockets to allow users on a Scrum team to vote on the complexity of a given user story. 
+This is a React.js app that uses websockets to allow users on a Scrum team to vote on the complexity of a given user story. See https://default.wsplanningpoker.com
 
 The app has 3 screens:
 
