@@ -12,20 +12,20 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 
-import GetUserInfo from "./components/GetUserInfo";
+import UserInfoEntryScreen from "./components/UserInfoEntryScreen";
 import PlanningPoker from "./components/PlanningPoker";
-import useSessionId from "./hooks/useSessionId";
+import useTeamId from "./hooks/useTeamId";
 
 function App() {
   const [colorMode, setColorMode] = useState("light");
 
   const [userInfo, setUserInfo] = useState(false);
-  const { sessionId, cleanSessionId } = useSessionId();
+  const { teamId, cleanTeamId } = useTeamId();
 
-  const addSessionIdAndSetUserInfo = (info) => {
+  const addteamIdAndSetUserInfo = (info) => {
     setUserInfo({
       ...info,
-      sessionId: sessionId,
+      teamId: teamId,
     });
   };
 
@@ -59,7 +59,7 @@ function App() {
   return (
     <ThemeProvider theme={colorMode === "light" ? lightTheme : darkTheme}>
       <Helmet>
-        <title>{cleanSessionId} Planning Poker</title>
+        <title>{cleanTeamId} Planning Poker</title>
       </Helmet>
       <Paper>
         <Box height="100vh">
@@ -72,7 +72,7 @@ function App() {
             >
               <Grid item>
                 <Typography variant="h6" style={{ margin: "5px" }}>
-                  {cleanSessionId} Planning Poker
+                  {cleanTeamId} Planning Poker
                 </Typography>
               </Grid>
               <Grid item>
@@ -96,7 +96,7 @@ function App() {
             {userInfo ? (
               <PlanningPoker userInfo={userInfo} />
             ) : (
-              <GetUserInfo setUserInfo={addSessionIdAndSetUserInfo} />
+              <UserInfoEntryScreen setUserInfo={addteamIdAndSetUserInfo} />
             )}
           </Box>
         </Box>

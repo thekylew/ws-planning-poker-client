@@ -3,9 +3,9 @@ import React from "react";
 import { Grid, Container } from "@mui/material";
 import getWebSocket from "../services/WebSocketService";
 
-import AdminState from "./AdminState";
-import AdminMenu from "./AdminMenu";
-import VoterMenu from "./VoterMenu";
+import ScrumMasterState from "./ScrumMasterState";
+import ScrumMasterScreen from "./ScrumMasterScreen";
+import DeveloperScreen from "./DeveloperScreen";
 import VoteDisplay from "./VoteDisplay";
 import ResultTable from "./ResultTable";
 import ResultChart from "./ResultChart";
@@ -17,7 +17,7 @@ function PlanningPoker({ userInfo }) {
 
   return (
     <Container>
-      {userInfo.isAdmin && <AdminMenu />}
+      {userInfo.isScrumMaster && <ScrumMasterScreen />}
       <Grid
         direction="row"
         justifyContent="space-between"
@@ -26,7 +26,7 @@ function PlanningPoker({ userInfo }) {
         spacing={8}
       >
         <Grid item xs>
-          {userInfo.isAdmin ? <AdminState /> : <VoterMenu />}
+          {userInfo.isScrumMaster ? <ScrumMasterState /> : <DeveloperScreen />}
         </Grid>
         <Grid item xs>
           <VoteDisplay />

@@ -5,7 +5,7 @@ import getWebSocket from "../services/WebSocketService";
 
 const socket = getWebSocket();
 
-const AdminState = () => {
+const ScrumMasterState = () => {
   const [storyName, setStoryName] = useState("");
 
   const { showVotes } = useVotes();
@@ -36,4 +36,4 @@ const AdminState = () => {
   );
 };
 
-export default AdminState;
+export default ScrumMasterState;

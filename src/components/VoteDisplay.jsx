@@ -20,9 +20,9 @@ const VoteDisplay = () => {
     if (!msg) return;
 
     msg.sort(function (a, b) {
-      if (a.isAdmin === b.isAdmin) return a.name?.localeCompare(b.name);
+      if (a.isScrumMaster === b.isScrumMaster) return a.name?.localeCompare(b.name);
 
-      return a.isAdmin < b.isAdmin ? 1 : -1;
+      return a.isScrumMaster < b.isScrumMaster ? 1 : -1;
     });
 
     setUserList(msg);
@@ -37,7 +37,7 @@ const VoteDisplay = () => {
     <>
       <h3>User List</h3>
       <List>
-        {userList.map(({ name, isAdmin, connectionId }) => {
+        {userList.map(({ name, isScrumMaster, connectionId }) => {
           return (
             <ListItem disableGutters key={`${connectionId}`}>
               <Grid container direction="row" spacing={2}>
@@ -45,30 +45,30 @@ const VoteDisplay = () => {
                   <span>{name}</span>
                 </Grid>
                 <Grid item>
-                  {isAdmin && (
+                  {isScrumMaster && (
                       <AdminPanelSettingsIcon />
                   )}
-                  {!isAdmin &&
+                  {!isScrumMaster &&
                     !showVotes &&
                     isVotingEnabled &&
                     !votes[connectionId] && (
                         <PendingIcon />
                     )}
-                  {!isAdmin &&
+                  {!isScrumMaster &&
                     !showVotes &&
                     isVotingEnabled &&
                     votes[connectionId] &&
                     votes[connectionId] !== "Need More Info" && (
                         <ThumbUpIcon />
                     )}
-                  {!isAdmin &&
+                  {!isScrumMaster &&
                     !showVotes &&
                     isVotingEnabled &&
                     votes[connectionId] &&
                     votes[connectionId] === "Need More Info" && (
                         <LocalCafeIcon />
                     )}
-                  {!isAdmin && showVotes && (
+                  {!isScrumMaster && showVotes && (
                     
                       <b>
                         {votes[connectionId] === "Need More Info" ? (

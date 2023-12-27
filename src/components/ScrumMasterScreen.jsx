@@ -10,7 +10,7 @@ const keepalive = () => {
 
 setInterval(keepalive, 60000);
 
-function AdminMenu() {
+function ScrumMasterScreen() {
   const [storyName, setStoryName] = useState("");
   const [intervalId, setIntervalId] = useState(false);
 
@@ -78,4 +78,4 @@ function AdminMenu() {
   );
 }
 
-export default AdminMenu;
+export default ScrumMasterScreen;

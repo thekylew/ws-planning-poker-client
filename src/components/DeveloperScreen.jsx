@@ -10,16 +10,16 @@ import {
 } from "@mui/material";
 import getWebSocket from "../services/WebSocketService";
 import { POINT_OPTIONS } from "./OptionPicker";
-import useSessionId from '../hooks/useSessionId';
+import useTeamId from '../hooks/useTeamId';
 
 const socket = getWebSocket();
 
-const VoterMenu = () => {
+const DeveloperScreen = () => {
   const [storyName, setStoryName] = useState("");
   const [isVotingEnabled, setIsVotingEnabled] = useState(false);
   const [chosenSize, setChosenSize] = useState("");
 
-  const { sessionId } = useSessionId();
+  const { teamId } = useTeamId();
 
   socket.addListener("setstoryname", (msg) => {
     setStoryName(msg.storyName);
@@ -41,7 +41,7 @@ const VoterMenu = () => {
   const sendVote = () => {
     socket.sendMessage("vote", {
       choice: chosenSize,
-      sessionId: sessionId,
+      teamId: teamId,
       storyName,
     });
   };
@@ -83,4 +83,4 @@ const VoterMenu = () => {
   );
 };
 
-export default VoterMenu;
+export default DeveloperScreen;
