@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { WsPlanningPokerPage } from "./wsPlanningPokerPage";
 
-test.describe("User Info Tests", () => {
+test.describe("Page Title Tests", () => {
   let wsPlanningPokerPage: WsPlanningPokerPage;
 
   test.beforeEach(async ({ page }) => {
@@ -30,5 +30,22 @@ test.describe("User Info Tests", () => {
 
     //page title should be Office Planning Poker
     await expect(page).toHaveTitle("Development Planning Poker");
+  });
+});
+
+test.describe("User Info Entry Tests", () => {
+  let wsPlanningPokerPage: WsPlanningPokerPage;
+
+  test.beforeEach(async ({ page }) => {
+    wsPlanningPokerPage = new WsPlanningPokerPage(page);
+    await wsPlanningPokerPage.goToLocal();
+  })
+
+  test("Name entry works", async () => {
+    await wsPlanningPokerPage.nameInput.fill('Test User');
+    
+    const nameValue = await wsPlanningPokerPage.nameInput.inputValue();
+
+    expect(nameValue).toBe('Test User');
   });
 });
