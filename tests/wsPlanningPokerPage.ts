@@ -1,9 +1,9 @@
 import type { Page, Locator } from '@playwright/test';
 
 export class WsPlanningPokerPage {
-    private readonly nameInputBox: Locator;
-    private readonly isAdminCheckbox: Locator;
-    private readonly joinButton: Locator;
+    public readonly nameInputBox: Locator;
+    public readonly isAdminCheckbox: Locator;
+    public readonly joinButton: Locator;
 
     constructor(public readonly page: Page) {
         this.nameInputBox = this.page.locator('name-input');
