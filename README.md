@@ -50,4 +50,3 @@ To run tests:
 * Allow users to change their name during voting
 * Add a donate link
 * Add a keepalive to avoid connection timeouts
-* Upgrade to mui v5
