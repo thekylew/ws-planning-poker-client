@@ -16,8 +16,19 @@ A websocket connection is used on each client to connect to the API. This allows
 
 ## Running the app locally
 
-1. `npm i` (if you haven't already)
-2. `npm start`
+1. Create a `.env` file at the root of the local directory. Mine looks like this:
+
+```
+REACT_APP_WEBSOCKET_URL=wss://cvgtsjdmze.execute-api.us-east-1.amazonaws.com/prod 
+REACT_APP_SESSION_ID=development
+```
+
+* `REACT_APP_WEBSOCKET_URL` will change each time the API is recreated.
+* `REACT_APP_SESSION_ID` sets the `teamId` for local development. If you want to develop or test in isolation, you should set a unique / custom one.
+
+2. `npm i` (if you haven't already)
+
+3. `npm start`
 
 ## Tests
 
