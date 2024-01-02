@@ -24,7 +24,7 @@ REACT_APP_SESSION_ID=development
 ```
 
 * `REACT_APP_WEBSOCKET_URL` will change each time the API is recreated.
-* `REACT_APP_SESSION_ID` sets the `teamId` for local development. If you want to develop or test in isolation, you should set a unique / custom one.
+* `REACT_APP_SESSION_ID` sets the `teamId` for local development. If you want to develop or test in isolation, you should set a unique / custom `teamId`.
 
 2. `npm i` (if you haven't already)
 
